@@ -2429,3 +2429,241 @@ Caused by: org.springframework.data.mapping.PropertyReferenceException: No prope
 2023-03-01 10:49:22.623  INFO 15312 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-03-01 10:49:22.624  INFO 15312 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2023-03-01 10:49:22.626  INFO 15312 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-03-01 11:54:10.492  INFO 11576 --- [restartedMain] com.example.eshop.EshopApplication       : Starting EshopApplication using Java 1.8.0-282 on MSI with PID 11576 (D:\devspaces\intellij\demoProjects\eshopspace02\eshop\out\production\classes started by sslee in D:\devspaces\intellij\demoProjects\eshopspace02\eshop)
+2023-03-01 11:54:10.493  INFO 11576 --- [restartedMain] com.example.eshop.EshopApplication       : The following 1 profile is active: "local-mysql"
+2023-03-01 11:54:10.721  INFO 11576 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-03-01 11:54:10.721  INFO 11576 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-03-01 11:54:11.250  INFO 11576 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-01 11:54:11.299  INFO 11576 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 40 ms. Found 1 JPA repository interfaces.
+2023-03-01 11:54:12.279  INFO 11576 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2023-03-01 11:54:12.290  INFO 11576 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-01 11:54:12.290  INFO 11576 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-03-01 11:54:12.383  INFO 11576 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-01 11:54:12.384  INFO 11576 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1662 ms
+2023-03-01 11:54:12.413  INFO 11576 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-03-01 11:54:12.717  INFO 11576 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-03-01 11:54:12.725  INFO 11576 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/eshop02?useUnicode=true&characterEncoding=utf8'
+2023-03-01 11:54:12.878  INFO 11576 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-01 11:54:12.936  INFO 11576 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-03-01 11:54:13.125  INFO 11576 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-03-01 11:54:13.259  INFO 11576 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-03-01 11:54:14.005  INFO 11576 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-01 11:54:14.014  INFO 11576 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-01 11:54:14.056  WARN 11576 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-03-01 11:54:14.919  INFO 11576 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-03-01 11:54:15.130  INFO 11576 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-03-01 11:54:15.162  INFO 11576 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2023-03-01 11:54:15.170  INFO 11576 --- [restartedMain] com.example.eshop.EshopApplication       : Started EshopApplication in 5.117 seconds (JVM running for 6.005)
+2023-03-01 11:54:24.298  INFO 11576 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-01 11:54:24.298  INFO 11576 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-03-01 11:54:24.299  INFO 11576 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-03-01 13:06:14.648  WARN 11576 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m30s916ms73µs800ns).
+2023-03-01 13:06:57.686  INFO 11576 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2023-03-01 13:06:57.938  INFO 11576 --- [Thread-6] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-03-01 13:06:57.939  INFO 11576 --- [Thread-6] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-03-01 13:06:57.947  INFO 11576 --- [Thread-6] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-01 13:06:57.950  INFO 11576 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-03-01 13:06:57.964  INFO 11576 --- [Thread-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-03-01 13:06:58.114  INFO 11576 --- [restartedMain] com.example.eshop.EshopApplication       : Starting EshopApplication using Java 1.8.0-282 on MSI with PID 11576 (D:\devspaces\intellij\demoProjects\eshopspace02\eshop\out\production\classes started by sslee in D:\devspaces\intellij\demoProjects\eshopspace02\eshop)
+2023-03-01 13:06:58.115  INFO 11576 --- [restartedMain] com.example.eshop.EshopApplication       : The following 1 profile is active: "local-mysql"
+2023-03-01 13:06:58.294  INFO 11576 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-01 13:06:58.302  INFO 11576 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 1 JPA repository interfaces.
+2023-03-01 13:06:58.432  INFO 11576 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2023-03-01 13:06:58.433  INFO 11576 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-01 13:06:58.433  INFO 11576 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-03-01 13:06:58.451  INFO 11576 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-01 13:06:58.451  INFO 11576 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 328 ms
+2023-03-01 13:06:58.460  INFO 11576 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2023-03-01 13:06:58.472  INFO 11576 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2023-03-01 13:06:58.472  INFO 11576 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/eshop02?useUnicode=true&characterEncoding=utf8'
+2023-03-01 13:06:58.493  INFO 11576 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-01 13:06:58.496  INFO 11576 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-03-01 13:06:58.546  INFO 11576 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-01 13:06:58.547  INFO 11576 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-01 13:06:58.563  WARN 11576 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-03-01 13:06:58.711  INFO 11576 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-03-01 13:06:58.768  INFO 11576 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-03-01 13:06:58.777  INFO 11576 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2023-03-01 13:06:58.780  INFO 11576 --- [restartedMain] com.example.eshop.EshopApplication       : Started EshopApplication in 0.701 seconds (JVM running for 4369.629)
+2023-03-01 13:06:58.782  INFO 11576 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-03-01 13:07:04.277  INFO 11576 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2023-03-01 13:07:04.536  INFO 11576 --- [Thread-8] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-03-01 13:07:04.546  INFO 11576 --- [Thread-8] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-01 13:07:04.547  INFO 11576 --- [Thread-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2023-03-01 13:07:04.554  INFO 11576 --- [Thread-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2023-03-01 13:07:04.725  INFO 11576 --- [restartedMain] com.example.eshop.EshopApplication       : Starting EshopApplication using Java 1.8.0-282 on MSI with PID 11576 (D:\devspaces\intellij\demoProjects\eshopspace02\eshop\out\production\classes started by sslee in D:\devspaces\intellij\demoProjects\eshopspace02\eshop)
+2023-03-01 13:07:04.725  INFO 11576 --- [restartedMain] com.example.eshop.EshopApplication       : The following 1 profile is active: "local-mysql"
+2023-03-01 13:07:04.883  INFO 11576 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-01 13:07:04.891  INFO 11576 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 1 JPA repository interfaces.
+2023-03-01 13:07:04.969  INFO 11576 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2023-03-01 13:07:04.970  INFO 11576 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-01 13:07:04.970  INFO 11576 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-03-01 13:07:04.982  INFO 11576 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-01 13:07:04.982  INFO 11576 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 256 ms
+2023-03-01 13:07:04.989  INFO 11576 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2023-03-01 13:07:04.999  INFO 11576 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2023-03-01 13:07:04.999  INFO 11576 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/eshop02?useUnicode=true&characterEncoding=utf8'
+2023-03-01 13:07:05.014  INFO 11576 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-01 13:07:05.017  INFO 11576 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-03-01 13:07:05.042  INFO 11576 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-01 13:07:05.042  INFO 11576 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-01 13:07:05.053  WARN 11576 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-03-01 13:07:05.169  INFO 11576 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-03-01 13:07:05.207  INFO 11576 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-03-01 13:07:05.213  INFO 11576 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2023-03-01 13:07:05.217  INFO 11576 --- [restartedMain] com.example.eshop.EshopApplication       : Started EshopApplication in 0.522 seconds (JVM running for 4376.065)
+2023-03-01 13:07:05.218  INFO 11576 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-03-01 13:10:45.745  INFO 11576 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-01 13:10:45.747  INFO 11576 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-03-01 13:10:45.748  INFO 11576 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-03-01 13:11:07.500  INFO 11576 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2023-03-01 13:11:07.795  INFO 11576 --- [Thread-12] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-03-01 13:11:07.797  INFO 11576 --- [Thread-12] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-03-01 13:11:07.806  INFO 11576 --- [Thread-12] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-01 13:11:07.807  INFO 11576 --- [Thread-12] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2023-03-01 13:11:07.817  INFO 11576 --- [Thread-12] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2023-03-01 13:11:08.079  INFO 11576 --- [restartedMain] com.example.eshop.EshopApplication       : Starting EshopApplication using Java 1.8.0-282 on MSI with PID 11576 (D:\devspaces\intellij\demoProjects\eshopspace02\eshop\out\production\classes started by sslee in D:\devspaces\intellij\demoProjects\eshopspace02\eshop)
+2023-03-01 13:11:08.079  INFO 11576 --- [restartedMain] com.example.eshop.EshopApplication       : The following 1 profile is active: "local-mysql"
+2023-03-01 13:11:08.296  INFO 11576 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-01 13:11:08.310  INFO 11576 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 1 JPA repository interfaces.
+2023-03-01 13:11:08.468  INFO 11576 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2023-03-01 13:11:08.469  INFO 11576 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-01 13:11:08.469  INFO 11576 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-03-01 13:11:08.482  INFO 11576 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-01 13:11:08.482  INFO 11576 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 398 ms
+2023-03-01 13:11:08.489  INFO 11576 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2023-03-01 13:11:08.500  INFO 11576 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2023-03-01 13:11:08.500  INFO 11576 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/eshop02?useUnicode=true&characterEncoding=utf8'
+2023-03-01 13:11:08.517  INFO 11576 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-01 13:11:08.522  INFO 11576 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-03-01 13:11:08.569  INFO 11576 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-01 13:11:08.569  INFO 11576 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-01 13:11:08.590  WARN 11576 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-03-01 13:11:08.732  INFO 11576 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-03-01 13:11:08.779  INFO 11576 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-03-01 13:11:08.786  INFO 11576 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2023-03-01 13:11:08.791  INFO 11576 --- [restartedMain] com.example.eshop.EshopApplication       : Started EshopApplication in 0.754 seconds (JVM running for 4619.639)
+2023-03-01 13:11:08.792  INFO 11576 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-03-01 13:11:11.209  INFO 11576 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2023-03-01 13:11:11.471  INFO 11576 --- [Thread-16] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-03-01 13:11:11.479  INFO 11576 --- [Thread-16] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-01 13:11:11.480  INFO 11576 --- [Thread-16] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2023-03-01 13:11:11.489  INFO 11576 --- [Thread-16] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2023-03-01 13:11:11.697  INFO 11576 --- [restartedMain] com.example.eshop.EshopApplication       : Starting EshopApplication using Java 1.8.0-282 on MSI with PID 11576 (D:\devspaces\intellij\demoProjects\eshopspace02\eshop\out\production\classes started by sslee in D:\devspaces\intellij\demoProjects\eshopspace02\eshop)
+2023-03-01 13:11:11.697  INFO 11576 --- [restartedMain] com.example.eshop.EshopApplication       : The following 1 profile is active: "local-mysql"
+2023-03-01 13:11:11.850  INFO 11576 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-01 13:11:11.857  INFO 11576 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 1 JPA repository interfaces.
+2023-03-01 13:11:11.925  INFO 11576 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2023-03-01 13:11:11.925  INFO 11576 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-01 13:11:11.925  INFO 11576 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-03-01 13:11:11.941  INFO 11576 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-01 13:11:11.941  INFO 11576 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 241 ms
+2023-03-01 13:11:11.950  INFO 11576 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2023-03-01 13:11:11.964  INFO 11576 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2023-03-01 13:11:11.965  INFO 11576 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/eshop02?useUnicode=true&characterEncoding=utf8'
+2023-03-01 13:11:11.981  INFO 11576 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-01 13:11:11.986  INFO 11576 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-03-01 13:11:12.020  INFO 11576 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-01 13:11:12.020  INFO 11576 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-01 13:11:12.032  WARN 11576 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-03-01 13:11:12.159  INFO 11576 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-03-01 13:11:12.213  INFO 11576 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-03-01 13:11:12.223  INFO 11576 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2023-03-01 13:11:12.228  INFO 11576 --- [restartedMain] com.example.eshop.EshopApplication       : Started EshopApplication in 0.562 seconds (JVM running for 4623.076)
+2023-03-01 13:11:12.229  INFO 11576 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-03-01 13:12:35.990  INFO 11576 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-01 13:12:35.992  INFO 11576 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2023-03-01 13:12:36.001  INFO 11576 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2023-03-01 13:14:01.808  INFO 8212 --- [restartedMain] com.example.eshop.EshopApplication       : Starting EshopApplication using Java 1.8.0-282 on MSI with PID 8212 (D:\devspaces\intellij\demoProjects\eshopspace02\eshop\out\production\classes started by sslee in D:\devspaces\intellij\demoProjects\eshopspace02\eshop)
+2023-03-01 13:14:01.809  INFO 8212 --- [restartedMain] com.example.eshop.EshopApplication       : The following 1 profile is active: "local-mysql"
+2023-03-01 13:14:02.069  INFO 8212 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-03-01 13:14:02.069  INFO 8212 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-03-01 13:14:02.786  INFO 8212 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-01 13:14:02.839  INFO 8212 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44 ms. Found 1 JPA repository interfaces.
+2023-03-01 13:14:03.737  INFO 8212 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2023-03-01 13:14:03.817  INFO 8212 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-01 13:14:03.818  INFO 8212 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-03-01 13:14:03.908  INFO 8212 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-01 13:14:03.909  INFO 8212 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1839 ms
+2023-03-01 13:14:03.937  INFO 8212 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-03-01 13:14:04.217  INFO 8212 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-03-01 13:14:04.225  INFO 8212 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/eshop02?useUnicode=true&characterEncoding=utf8'
+2023-03-01 13:14:04.376  INFO 8212 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-01 13:14:04.432  INFO 8212 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-03-01 13:14:04.617  INFO 8212 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-03-01 13:14:04.727  INFO 8212 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-03-01 13:14:05.292  INFO 8212 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-01 13:14:05.301  INFO 8212 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-01 13:14:05.343  WARN 8212 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-03-01 13:14:06.154  INFO 8212 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-03-01 13:14:06.352  INFO 8212 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-03-01 13:14:06.382  INFO 8212 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2023-03-01 13:14:06.392  INFO 8212 --- [restartedMain] com.example.eshop.EshopApplication       : Started EshopApplication in 5.016 seconds (JVM running for 5.886)
+2023-03-01 13:14:08.511  INFO 8212 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-01 13:14:08.511  INFO 8212 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-03-01 13:14:08.512  INFO 8212 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-03-01 13:14:30.809  INFO 8212 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-01 13:14:30.812  INFO 8212 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-03-01 13:14:30.818  INFO 8212 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-03-01 13:14:33.705  INFO 6232 --- [restartedMain] com.example.eshop.EshopApplication       : Starting EshopApplication using Java 1.8.0-282 on MSI with PID 6232 (D:\devspaces\intellij\demoProjects\eshopspace02\eshop\out\production\classes started by sslee in D:\devspaces\intellij\demoProjects\eshopspace02\eshop)
+2023-03-01 13:14:33.706  INFO 6232 --- [restartedMain] com.example.eshop.EshopApplication       : The following 1 profile is active: "local-mysql"
+2023-03-01 13:14:33.964  INFO 6232 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-03-01 13:14:33.964  INFO 6232 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-03-01 13:14:34.518  INFO 6232 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-01 13:14:34.565  INFO 6232 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 38 ms. Found 1 JPA repository interfaces.
+2023-03-01 13:14:35.481  INFO 6232 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2023-03-01 13:14:35.577  INFO 6232 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-01 13:14:35.577  INFO 6232 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-03-01 13:14:35.667  INFO 6232 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-01 13:14:35.667  INFO 6232 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1703 ms
+2023-03-01 13:14:35.703  INFO 6232 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-03-01 13:14:36.036  INFO 6232 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-03-01 13:14:36.045  INFO 6232 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/eshop02?useUnicode=true&characterEncoding=utf8'
+2023-03-01 13:14:36.230  INFO 6232 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-01 13:14:36.306  INFO 6232 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-03-01 13:14:36.479  INFO 6232 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-03-01 13:14:36.588  INFO 6232 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-03-01 13:14:37.147  INFO 6232 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-01 13:14:37.156  INFO 6232 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-01 13:14:37.198  WARN 6232 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-03-01 13:14:37.995  INFO 6232 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-03-01 13:14:38.202  INFO 6232 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-03-01 13:14:38.235  INFO 6232 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2023-03-01 13:14:38.242  INFO 6232 --- [restartedMain] com.example.eshop.EshopApplication       : Started EshopApplication in 5.009 seconds (JVM running for 5.557)
+2023-03-01 13:14:39.641  INFO 6232 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-01 13:14:39.641  INFO 6232 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-03-01 13:14:39.642  INFO 6232 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-03-01 13:15:09.520  INFO 6232 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-01 13:15:09.523  INFO 6232 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-03-01 13:15:09.528  INFO 6232 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-03-01 13:15:12.202  INFO 19260 --- [restartedMain] com.example.eshop.EshopApplication       : Starting EshopApplication using Java 1.8.0-282 on MSI with PID 19260 (D:\devspaces\intellij\demoProjects\eshopspace02\eshop\out\production\classes started by sslee in D:\devspaces\intellij\demoProjects\eshopspace02\eshop)
+2023-03-01 13:15:12.203  INFO 19260 --- [restartedMain] com.example.eshop.EshopApplication       : The following 1 profile is active: "local-mysql"
+2023-03-01 13:15:12.456  INFO 19260 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-03-01 13:15:12.456  INFO 19260 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-03-01 13:15:12.969  INFO 19260 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-01 13:15:13.018  INFO 19260 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 40 ms. Found 1 JPA repository interfaces.
+2023-03-01 13:15:13.977  INFO 19260 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 80 (http)
+2023-03-01 13:15:14.065  INFO 19260 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-01 13:15:14.065  INFO 19260 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-03-01 13:15:14.164  INFO 19260 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-01 13:15:14.164  INFO 19260 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1708 ms
+2023-03-01 13:15:14.196  INFO 19260 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-03-01 13:15:14.510  INFO 19260 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-03-01 13:15:14.519  INFO 19260 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/eshop02?useUnicode=true&characterEncoding=utf8'
+2023-03-01 13:15:14.712  INFO 19260 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-01 13:15:14.794  INFO 19260 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-03-01 13:15:14.978  INFO 19260 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-03-01 13:15:15.099  INFO 19260 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-03-01 13:15:15.662  INFO 19260 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-01 13:15:15.671  INFO 19260 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-01 13:15:15.714  WARN 19260 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-03-01 13:15:16.527  INFO 19260 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-03-01 13:15:16.733  INFO 19260 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-03-01 13:15:16.763  INFO 19260 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 80 (http) with context path ''
+2023-03-01 13:15:16.771  INFO 19260 --- [restartedMain] com.example.eshop.EshopApplication       : Started EshopApplication in 5.036 seconds (JVM running for 5.578)
+2023-03-01 13:15:17.839  INFO 19260 --- [http-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-01 13:15:17.839  INFO 19260 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-03-01 13:15:17.840  INFO 19260 --- [http-nio-80-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-03-01 13:53:39.923  INFO 19260 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-01 13:53:39.926  INFO 19260 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-03-01 13:53:39.939  INFO 19260 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
