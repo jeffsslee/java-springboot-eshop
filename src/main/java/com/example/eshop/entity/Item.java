@@ -5,13 +5,12 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "item")
 @Getter @Setter @ToString
 @NoArgsConstructor @AllArgsConstructor @Builder
-public class Item {
+public class Item  extends BaseEntity{
 
   @Id @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "item_id")
@@ -29,6 +28,6 @@ public class Item {
   private String itemDetail;
   @Enumerated(EnumType.STRING)
   private ItemSellStatus itemSellStatus;
-  private LocalDateTime regTime;
-  private LocalDateTime updateTime;
+//  private LocalDateTime regTime;
+//  private LocalDateTime updateTime;
 }

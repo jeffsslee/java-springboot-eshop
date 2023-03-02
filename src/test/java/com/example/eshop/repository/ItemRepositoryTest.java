@@ -20,7 +20,6 @@ import org.thymeleaf.util.StringUtils;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @SpringBootTest
@@ -43,8 +42,8 @@ class ItemRepositoryTest {
         .itemDetail("Shirts for spring 2023")
         .itemSellStatus(ItemSellStatus.FOR_SALE)
         .stockNumber(50)
-        .regTime(LocalDateTime.now())
-        .updateTime(LocalDateTime.now())
+//        .regTime(LocalDateTime.now())
+//        .updateTime(LocalDateTime.now())
         .build()
         ;
 
@@ -60,8 +59,8 @@ class ItemRepositoryTest {
           .itemDetail("Shirts for spring 2023 with ID : " + i)
           .itemSellStatus(ItemSellStatus.FOR_SALE)
           .stockNumber(50)
-          .regTime(LocalDateTime.now())
-          .updateTime(LocalDateTime.now())
+//          .regTime(LocalDateTime.now())
+//          .updateTime(LocalDateTime.now())
           .build()
           ;
       itemRepository.save(item);
@@ -76,8 +75,8 @@ class ItemRepositoryTest {
           .itemDetail("Shirts for spring 2023 with ID : " + i)
           .itemSellStatus(ItemSellStatus.FOR_SALE)
           .stockNumber(50)
-          .regTime(LocalDateTime.now())
-          .updateTime(LocalDateTime.now())
+//          .regTime(LocalDateTime.now())
+//          .updateTime(LocalDateTime.now())
           .build()
           ;
       itemRepository.save(item);
@@ -89,8 +88,8 @@ class ItemRepositoryTest {
           .itemDetail("Shirts for spring 2023 with ID : " + i)
           .itemSellStatus(ItemSellStatus.SOLD_OUT)
           .stockNumber(50)
-          .regTime(LocalDateTime.now())
-          .updateTime(LocalDateTime.now())
+//          .regTime(LocalDateTime.now())
+//          .updateTime(LocalDateTime.now())
           .build()
           ;
       itemRepository.save(item);
