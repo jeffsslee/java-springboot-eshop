@@ -1,6 +1,7 @@
 package com.example.eshop.entity;
 
 import com.example.eshop.constant.ItemSellStatus;
+import com.example.eshop.dto.ItemFormDto;
 import lombok.*;
 
 import javax.persistence.*;
@@ -30,4 +31,14 @@ public class Item  extends BaseEntity{
   private ItemSellStatus itemSellStatus;
 //  private LocalDateTime regTime;
 //  private LocalDateTime updateTime;
+
+  public void updateItem(ItemFormDto dto){
+    itemName = dto.getItemName();
+    price = dto.getPrice();
+    stockNumber = dto.getStockNumber();
+    itemDetail = dto.getItemDetail();
+    itemSellStatus = dto.getItemSellStatus();
+  }
+
+
 }
