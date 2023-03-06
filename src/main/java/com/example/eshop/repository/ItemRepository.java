@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 // When extending to JpaRepository, no need to explicit '@Repository' annotation
-public interface ItemRepository extends JpaRepository<Item, Long>, QuerydslPredicateExecutor<Item> {
+public interface ItemRepository extends JpaRepository<Item, Long>, QuerydslPredicateExecutor<Item>, ItemRepositoryCustom {
 
   List<Item> findByItemName(String itemName);
   List<Item> findByPriceLessThan(BigDecimal price);

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+
+<head>
+  <!--  Do NOT write header attributes here; if write....then, the attributes would be duplicated with layout template... -->
+  <title>Home</title>
+</head>
+
+<th:block layout:fragment="local_javascript">
+  <script th:inline="javascript">
+  </script>
+</th:block>
+
+<th:block layout:fragment="local_css">
+  <style>f
+
+  </style>
+</th:block>
+
+<div layout:fragment="content">
+  <div class="container py-3">
+    <img src="/images/img/main-banner.png" class="img-fluid pb-5" alt="main banner">
+    <input type="hidden" name="searchQuery" th:value="${itemSearchDto.searchQuery}">
+    <div th:if="${not #strings.isEmpty(itemSearchDto.searchQuery)}" class="center">
+      <p class="display-6  mb-4 text-center" th:text="'Search Result : '  + ${itemSearchDto.searchQuery}"></p>
+    </div>
+
+
+    <div class="row">
+      <th:block th:each="item, status: ${items.getContent()}">
+        <div class="col-sm-4 justify-content-center">
+          <div class="card mb-5">
+            <a th:href="@{'/item/' + ${item.id}}" class="plain-href">
+              <img th:src="${item.imgUrl}" class="card-img-top" th:alt="${item.itemName}">
+              <div class="card-body">
+                <h4 class="card-title">[[${item.itemName}]]</h4>
+                <p class="card-text">[[${item.itemDetail}]]</p>
+                <!--                <h3 class="card-title text-danger">[['$ ' + ${#numbers.formatDecimal(item.price, 1, 'COMMA', 2, 'POINT')}]]</h3>-->
+                <h3 class="card-title text-danger">$ [[${item.price}]]</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+      </th:block>
+    </div>
+
+
+    <div th:with="start=${(items.number/maxPage)*maxPage + 1}, end=(${(items.totalPages == 0) ? 1 : (start + (maxPage - 1) < items.totalPages ? start + (maxPage - 1) : items.totalPages)})">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item" th:classappend="${items.first} ? 'disabled'">
+            <a class="page-link" href="#" aria-label="Previous"
+               th:href="@{'/' + '?searchQuery=' + ${itemSearchDto.searchQuery} + '&page=' + ${items.number - 1}}">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item" th:each="page: ${#numbers.sequence(start, end)}"
+              th:classappend="${items.number eq page - 1} ? 'active' : ''">
+            <a class="page-link" href="#"
+               th:href="@{'/' + '?searchQuery=' + ${itemSearchDto.searchQuery} + '&page=' + ${page-1}}">[[${page}]]</a>
+          </li>
+
+
+          <li class="page-item" th:classappend="${items.last} ? 'disabled'">
+            <a class="page-link" href="#" aria-label="Next"
+               th:href="@{'/' + '?searchQuery=' + ${itemSearchDto.searchQuery} + '&page=' + ${items.number + 1}}">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+  </div>
+</div>
+
+</html>

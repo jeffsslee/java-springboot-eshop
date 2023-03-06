@@ -48,6 +48,8 @@ dependencies {
 	implementation "com.querydsl:querydsl-apt:${queryDslVersion}"
 	// for thymeleaf-layout-dialect
 	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.0.0'
+	// https://mvnrepository.com/artifact/org.modelmapper/modelmapper
+	implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.1.0'
 
 }
 

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+
+<head>
+  <!--  Do NOT write header attributes here; if write....then, the attributes would be duplicated with layout template... -->
+  <title>Item Manage</title>
+</head>
+
+<th:block layout:fragment="local_javascript">
+  <script th:inline="javascript">
+    $(function(){
+      $("#searchBtn").on("click", function(e){
+        e.preventDefault();
+        page(0);
+      });
+    });  // end of $()
+
+    function page(page){
+      let searchDateType = $("#searchDateType").val();
+      let searchSellStatus = $("#searchSellStatus").val();
+      let searchBy = $("#searchBy").val();
+      let searchQuery = $("#searchQuery").val();
+
+      location.href="/admin/items/" + page + "?searchDateType=" + searchDateType
+          + "&searchSellStatus=" + searchSellStatus
+          + "&searchBy=" + searchBy
+          + "&searchQuery=" + searchQuery;
+
+    }
+
+
+
+
+
+
+
+
+
+  </script>
+</th:block>
+
+<th:block layout:fragment="local_css">
+  <style>
+  </style>
+</th:block>
+
+<div layout:fragment="content">
+  <div class="container py-3">
+    <div class="col-sm-12 col-md-12 col-lg-12 border border-light-subtle px-5 py-5">
+      <div class="display-6  mb-4 text-uppercase">Current Items</div>
+      <form th:action="@{'/admin/items/' + ${items.number}}" role="form" method="get" th:object="${items}">
+        <table class="table table-hover mb-5">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Item Name</th>
+            <th scope="col">Sell Status</th>
+            <th scope="col">Manager</th>
+            <th scope="col">Register Date</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="item, status: ${items.getContent()}">
+            <td th:text="${item.id}">id</td>
+            <td>
+              <a th:href="@{'/admin/item/' + ${item.id}}" th:text="${item.itemName}" class="plain-href plain-red-href">ItemName</a>
+            </td>
+            <td th:text="${item.itemSellStatus == T(com.example.eshop.constant.ItemSellStatus).FOR_SALE} ? 'For Sale' : 'Sold Out'">
+              id
+            </td>
+            <td th:text="${item.createdBy}">Manager</td>
+            <td th:text="${#temporals.format(item.regTime, 'dd-MM-yyyy')}">Date</td>
+          </tr>
+          </tbody>
+        </table>
+
+        <div class="mb-5 pb-3"
+             th:with="start=${(items.number/maxPage)*maxPage + 1}, end=(${(items.totalPages == 0) ? 1 : (start + (maxPage - 1) < items.totalPages ? start + (maxPage - 1) : items.totalPages)})">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item" th:classappend="${items.first} ? 'disabled'">
+                <a th:onclick="'javascript:page(' + ${items.number -1} + ')'"
+                   class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item" th:each="page: ${#numbers.sequence(start, end)}"
+                  th:classappend="${items.number eq page - 1} ? 'active' : ''">
+                <a class="page-link" href="#"
+                   th:onclick="'javascript:page('+ ${page -1} +')'">[[${page}]]</a>
+              </li>
+              <li class="page-item" th:classappend="${items.last} ? 'disabled'">
+                <a class="page-link" href="#" aria-label="Next"
+                   th:onclick="'javascript:page('+ ${items.number + 1} +')'">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="row g-3 justify-content-center" th:object="${itemSearchDto}">
+          <div class="col-auto">
+            <select data-th-field="*{searchDateType}" id="searchDateType" class="form-select" aria-label="select date type">
+              <option value="all">Any Time</option>
+              <option value="1d">1 Day</option>
+              <option value="1w">1 Week</option>
+              <option value="1m">1 Month</option>
+              <option value="6m">6 Months</option>
+            </select>
+          </div>
+          <div class="col-auto">
+            <select data-th-field="*{searchSellStatus}" id="searchSellStatus" class="form-select" aria-label="select sell status">
+              <option value="">All Type</option>
+              <option value="FOR_SALE">For Sale</option>
+              <option value="SOLD_OUT">Sold Out</option>
+            </select>
+          </div>
+          <div class="col-auto">
+            <select data-th-field="*{searchBy}" id="searchBy" class="form-select" aria-label="select searchBy">
+              <option value="itemName">Item name</option>
+              <option value="createdBy">Created By</option>
+            </select>
+          </div>
+          <div class="col-auto">
+            <input type="text" data-th-field="*{searchQuery}" id="searchQuery" class="form-control"
+                   placeholder="input search word">
+          </div>
+          <input type="hidden" data-th-name="${_csrf.parameterName}" data-th-value="${_csrf.token}"/>
+          <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3" id="searchBtn">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+</html>
