@@ -39,9 +39,9 @@ public class ItemService {
       ItemImg itemImg = new ItemImg();
       itemImg.setItem(item);
       if(i == 0){
-        itemImg.setRefImgYn("Y");
+        itemImg.setRepImgYn("Y");
       }else{
-        itemImg.setRefImgYn("N");
+        itemImg.setRepImgYn("N");
       }
       itemImgService.saveItemImg(itemImg, itemImgFileList.get(i));
     }

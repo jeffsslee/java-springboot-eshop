@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+
+<head>
+  <!--  Do NOT write header attributes here; if write....then, the attributes would be duplicated with layout template... -->
+  <meta name="_csrf" th:content="${_csrf.token}"/>
+  <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+  <title>Shopping History</title>
+</head>
+
+<th:block layout:fragment="local_javascript">
+  <script th:inline="javascript">
+        $(function(){
+
+        });
+
+        function cancelOrder(orderId){
+            let token = $("meta[name='_csrf']").attr("content");
+            let header = $("meta[name='_csrf_header']").attr("content");
+
+            let url = "/order/" + orderId + "/cancel";
+            let paramData = {
+                orderId : orderId,
+            };
+
+            let param = JSON.stringify(paramData);
+
+            $.ajax({
+                url: url,
+                type: "POST",
+                contentType: "application/json",
+                data: param,
+                beforeSend: function(xhr){
+                    xhr.setRequestHeader(header, token);
+                },
+                dataType: "json",
+                cache: false,
+                success: function(result, status){
+                    alert("Success Order Cancellation!");
+                    location.href='/orders/' + [[${page}]];
+                },
+                error: function(jqXHR, status, error){
+                    if(jqXHR.status == '401'){
+                        alert('LOGIN is required!');
+                        location.href='/members/login';
+                    }else{
+                        alert(jqXHR.responseText);
+                    }
+                }
+            });
+        }
+
+
+  </script>
+</th:block>
+
+<th:block layout:fragment="local_css">
+  <style>
+  </style>
+</th:block>
+
+<div layout:fragment="content">
+  <div class="container py-3">
+    <div class="col-sm-12 col-md-12 col-lg-12 border border-light-subtle px-5 py-5">
+      <div class="display-6  mb-4 text-uppercase">Shopping History</div>
+      <div th:each="order : ${orders.getContent()}" class="mb-5">
+
+        <div class="row justify-content-evenly border border-light-subtle"
+             data-th-each="orderItem : ${order.orderItemDtoList}">
+          <div class="col-md-4 p-3">
+            <img th:src="${orderItem.imgUrl}" class="img-fluid w-50"
+                 th:alt="${orderItem.itemName}">
+          </div>
+          <div class="col-md-4 p-3">
+            <h5 class="" th:text="${orderItem.itemName}"> title</h5>
+            <div th:text="|Amount : $ ${#numbers.formatDecimal(orderItem.orderPrice,1,'COMMA',2,'POINT')}|">
+              00
+            </div>
+            <div th:text="|Order Quantity : ${orderItem.count}|">00</div>
+            <div th:text="|Order date : ${order.orderDate}|"></div>
+          </div>
+          <div class="col-md-4 p-3">
+            <th:block th:if="${order.orderStatus == T(com.example.eshop.constant.OrderStatus).ORDER}">
+              <button type="button" class="btn btn-sm btn-outline-danger"
+                      th:value="${order.orderId}" onclick="cancelOrder(this.value)">Cancel Order</button>
+            </th:block>
+            <th:block
+                th:unless="${order.orderStatus == T(com.example.eshop.constant.OrderStatus).ORDER}">
+              <div class="fs-5 text-muted" th:text="|(Canceled)|"></div>
+            </th:block>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+</html>

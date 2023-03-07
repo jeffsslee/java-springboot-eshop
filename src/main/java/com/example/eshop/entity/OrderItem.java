@@ -29,4 +29,24 @@ public class OrderItem  extends BaseEntity{
   private int count;
 //  private LocalDateTime regTime;
 //  private LocalDateTime updateTime;
+
+  public static OrderItem createOrderItem(Item item, int count){
+    OrderItem orderItem = new OrderItem();
+    orderItem.setItem(item);
+    orderItem.setCount(count);
+    orderItem.setOrderPrice(item.getPrice()); //item.getPrice() is just a unit price
+    item.removeStock(count);
+    // orderItem.setOrder ?? > when : order.addOrderItem(orderItem)
+    return orderItem;
+  }
+
+  // Total price for current item (list)
+  public BigDecimal getTotalPrice(){
+    // BigDecimal.... bigDecimal1.multiply(bigDecimal2)
+    return orderPrice.multiply(new BigDecimal(count));
+  }
+
+  public void cancel(){
+    this.getItem().addStock(count);
+  }
 }

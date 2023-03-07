@@ -2,6 +2,7 @@ package com.example.eshop.entity;
 
 import com.example.eshop.constant.ItemSellStatus;
 import com.example.eshop.dto.ItemFormDto;
+import com.example.eshop.exception.OutOfStockException;
 import lombok.*;
 
 import javax.persistence.*;
@@ -38,6 +39,18 @@ public class Item  extends BaseEntity{
     stockNumber = dto.getStockNumber();
     itemDetail = dto.getItemDetail();
     itemSellStatus = dto.getItemSellStatus();
+  }
+
+  public void removeStock(int stockNumber){
+    int restStock = this.stockNumber - stockNumber;
+    if(restStock < 0){
+      throw new OutOfStockException("Item stock is NOT enough! (current stock quantity : " + this.stockNumber +")" );
+    }
+    this.stockNumber = restStock;
+  }
+
+  public void addStock(int stockNumber){
+    this.stockNumber += stockNumber;
   }
 
 

@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 /**
  * ItemImg.java
- * item_img_id, item_id, ori_img_name, img_name, img_url, ref_img_yn
+ * item_img_id, item_id, ori_img_name, img_name, img_url, rep_img_yn
  */
 
 @Entity
@@ -21,7 +21,7 @@ public class ItemImg extends BaseEntity{
   private String imgName;
   private String oriImgName;
   private String imgUrl;
-  private String refImgYn;
+  private String repImgYn;
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "item_id")
   private Item item;

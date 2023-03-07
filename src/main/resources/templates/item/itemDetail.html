@@ -5,6 +5,8 @@
 
 <head>
   <!--  Do NOT write header attributes here; if write....then, the attributes would be duplicated with layout template... -->
+  <meta name="_csrf" th:content="${_csrf.token}"/>
+  <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
   <title>Item Detail</title>
 </head>
 
@@ -26,6 +28,79 @@
     $("#totalPrice").html('$ ' + totalPrice.toFixed(2));
      }
 
+    function order(){
+      let token = $("meta[name='_csrf']").attr("content");
+      let header = $("meta[name='_csrf_header']").attr("content");
+
+      let url = "/order";
+      let paramData = {
+        itemId : $("#itemId").val(),
+        count : $("#count").val()
+      };
+
+      let param = JSON.stringify(paramData);
+
+      $.ajax({
+        url: url,
+        type: "POST",
+        contentType: "application/json",
+        data: param,
+        beforeSend: function(xhr){
+          xhr.setRequestHeader(header, token);
+        },
+        dataType: "json",
+        cache: false,
+        success: function(result, status){
+          alert("Success Order placement!");
+          location.href='/';
+        },
+        error: function(jqXHR, status, error){
+          if(jqXHR.status == '401'){
+            alert('LOGIN is required!');
+            location.href='/members/login';
+          }else{
+            alert(jqXHR.responseText);
+          }
+        }
+      });
+    }
+
+    function addCart(){
+      let token = $("meta[name='_csrf']").attr("content");
+      let header = $("meta[name='_csrf_header']").attr("content");
+
+      let url = "/cart";
+      let paramData = {
+        itemId : $("#itemId").val(),
+        count : $("#count").val()
+      };
+
+      let param = JSON.stringify(paramData);
+
+      $.ajax({
+        url: url,
+        type: "POST",
+        contentType: "application/json",
+        data: param,
+        beforeSend: function(xhr){
+          xhr.setRequestHeader(header, token);
+        },
+        dataType: "json",
+        cache: false,
+        success: function(result, status){
+          alert("successfully added the item to your cart!");
+          location.href='/';
+        },
+        error: function(jqXHR, status, error){
+          if(jqXHR.status == '401'){
+            alert('LOGIN is required!');
+            location.href='/members/login';
+          }else{
+            alert(jqXHR.responseText);
+          }
+        }
+      });
+    }
 
 
   </script>
