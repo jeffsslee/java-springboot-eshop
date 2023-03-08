@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+
+<head>
+  <!--  Do NOT write header attributes here; if write....then, the attributes would be duplicated with layout template... -->
+  <meta name="_csrf" th:content="${_csrf.token}"/>
+  <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+  <title>Cart List</title>
+</head>
+
+<th:block layout:fragment="local_javascript">
+  <script th:inline="javascript">
+        $(function(){
+
+            checkAll();
+
+            $("input[name=cartChkBox]").change(function(){
+                getOrderTotalPrice();
+                $("input[name=checkall]").prop("checked", false);
+            });
+
+        });
+
+
+        function getOrderTotalPrice(){
+            let orderTotalPrice = 0;
+            $("input[name=cartChkBox]:checked").each(function(){
+                let cartItemId = $(this).val();
+                let price = $("#price_"+ cartItemId).attr("data-price");
+                let count = $("#count_"+ cartItemId).val();
+                orderTotalPrice += Math.round(price*count*100)/100;
+            });
+
+            orderTotalPrice = Math.round(orderTotalPrice*100)/100;
+            $("#orderTotalPrice").html('$ ' + priceToString(orderTotalPrice.toFixed(2).toLocaleString()));
+        }
+
+        function changeCount(obj){
+            let count = obj.value;
+            let cartItemId = obj.id.split('_')[1];
+            let price = $("#price_" + cartItemId).data("price");
+            let totalPrice = Math.round(count*price*100)/100;
+
+            $("#totalPrice_" + cartItemId).html('$ ' + priceToString(totalPrice.toFixed(2)));
+
+            getOrderTotalPrice();
+            updateCartItemCount(cartItemId, count);
+        }
+
+        function checkAll(){
+            if($("#checkall").prop("checked")){
+                $("input[name=cartChkBox]").prop("checked", true);
+            }else{
+                $("input[name=cartChkBox]").prop("checked", false);
+            }
+            getOrderTotalPrice();
+        }
+
+        function updateCartItemCount(cartItemId, count){
+
+            let token = $("meta[name='_csrf']").attr("content");
+            let header = $("meta[name='_csrf_header']").attr("content");
+
+            let url = "/cartItem/" + cartItemId + "?count=" + count;
+            // url로 (get 방식) 자료 전송시 Spring 컨트롤러 메서드에서 매개변수로 바로 받을 수 있다...
+
+              $.ajax({
+                url: url,
+                type: "PATCH",
+                contentType: "application/json",
+                beforeSend: function(xhr){
+                    xhr.setRequestHeader(header, token);
+                },
+                dataType: "json",
+                cache: false,
+                success: function(result, status){
+                    console.log("success cartItem count update!");
+                },
+                error: function(jqXHR, status, error){
+                    if(jqXHR.status == '401'){
+                        alert('LOGIN is required!');
+                        location.href='/members/login';
+                    }else{
+                        alert(jqXHR.responseText);
+                    }
+                }
+            });
+
+        }
+
+        function deleteCartItem(obj){
+
+            let cartItemId = obj.dataset.id;
+
+            let token = $("meta[name='_csrf']").attr("content");
+            let header = $("meta[name='_csrf_header']").attr("content");
+
+            let url = "/cartItem/" + cartItemId;
+
+              $.ajax({
+                url: url,
+                type: "DELETE",
+                contentType: "application/json",
+                beforeSend: function(xhr){
+                    xhr.setRequestHeader(header, token);
+                },
+                dataType: "json",
+                cache: false,
+                success: function(result, status){
+                    location.href='/cart';
+                },
+                error: function(jqXHR, status, error){
+                    if(jqXHR.status == '401'){
+                        alert('LOGIN is required!');
+                        location.href='/members/login';
+                    }else{
+                        alert(jqXHR.responseText);
+                    }
+                }
+            });
+        }
+
+        function orders(){
+            let token = $("meta[name='_csrf']").attr("content");
+            let header = $("meta[name='_csrf_header']").attr("content");
+
+            let url = "/cart/orders";
+            let dataList = new Array();
+            let paramData = new Object();
+
+            $("input[name=cartChkBox]:checked").each(function(){
+                let cartItemId = $(this).val();
+                let data = new Object();
+                data["cartItemId"] = cartItemId;
+                dataList.push(data);
+            });
+
+            paramData['cartOrderDtoList'] = dataList;
+            let param = JSON.stringify(paramData);
+
+            $.ajax({
+                url: url,
+                type: "POST",
+                contentType: "application/json",
+                data: param,
+                beforeSend: function(xhr){
+                    xhr.setRequestHeader(header, token);
+                },
+                dataType: "json",
+                cache: false,
+                success: function(result, status){
+                    alert("Order Success!");
+                    location.href='/orders';
+                },
+                error: function(jqXHR, status, error){
+                    if(jqXHR.status == '401'){
+                        alert('LOGIN is required!');
+                        location.href='/members/login';
+                    }else{
+                        alert(jqXHR.responseText);
+                    }
+                }
+            });
+        }
+
+        function priceToString(price) {
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+
+
+
+
+  </script>
+</th:block>
+
+<th:block layout:fragment="local_css">
+  <style>
+  </style>
+</th:block>
+
+<div layout:fragment="content">
+  <div class="container py-3">
+    <div class="col-sm-12 col-md-12 col-lg-12 border border-light-subtle px-5 py-5">
+      <div class="display-6  mb-4 text-uppercase">Cart List</div>
+
+      <table class="table align-middle col-sm-12 mb-5">
+        <colgroup>
+          <col class="col-sm-2"/>
+          <col class="col-sm-8"/>
+          <col class="col-sm-2"/>
+        </colgroup>
+        <thead>
+        <tr>
+          <th scope="col">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="checkall" name="checkall"
+                     onclick="checkAll()" checked>
+              <label class="form-check-label" for="checkall">Select All </label>
+            </div>
+          <th scope="col">Item Info</th>
+          <th scope="col">Amount</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="cartItem : ${cartItems}">
+          <td>
+            <input class="form-check-input " type="checkbox" th:value="${cartItem.cartItemId}"
+                   name="cartChkBox">
+          </td>
+          <td class="d-flex align-items-center ">
+            <div>
+              <img th:src="${cartItem.imgUrl}" alt="${cartItem.itemName}"
+                   class="rounded-4 p-2" style="max-width: 140px">
+            </div>
+            <div class="ms-3">
+              <div>
+                <span class="fs-6 fw-bold" th:text="${cartItem.itemName}">Name</span>
+              </div>
+              <div class="col-auto">
+                <span class="col-form-label" for="count"
+                      th:id="'price_' + ${cartItem.cartItemId}"
+                      th:data-price="${cartItem.price}"
+                      th:text="|Unit Price : $ ${cartItem.price}|">$100</span>
+<!--                      th:text="|Unit Price : $ ${#numbers.formatDecimal(cartItem.price,1,'COMMA',2,'POINT')}|">$100</span>-->
+              </div>
+              <div class="row">
+                <div class="input-group col-auto">
+                  <label th:for="'count_'+ ${cartItem.cartItemId}" class="col-form-label">Order
+                    Quantity :&nbsp;&nbsp;</label>
+                  <input class="form-control" type="number" name="count"
+                         style="max-width: 140px"
+                         th:id="'count_'+ ${cartItem.cartItemId}"
+                         th:value="${cartItem.count}" min="1"
+                         onchange="changeCount(this)"/>
+                  <button class="btn btn-outline-secondary" type="button"
+                          id="button-addon2">
+                    <span aria-hidden="true" th:data-id="${cartItem.cartItemId}"
+                          onclick="deleteCartItem(this)">&times;</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="text-end">
+            <span class="fw-bold" th:id="'totalPrice_' + ${cartItem.cartItemId}"
+                  name="totalPrice"
+                  th:text="|$ ${cartItem.price * cartItem.count}|">$ 100</span>
+<!--                  th:text="|$ ${#numbers.formatDecimal(cartItem.price * cartItem.count,1,'COMMA',2,'POINT')}|">$ 100</span>-->
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <div class="text-center">
+        <h4 class="text-center mb-3">
+          Total Amount : <span id="orderTotalPrice" class="text-danger">$ 100.00</span>
+        </h4>
+        <button type="button" class="btn btn-outline-primary" onclick="orders()">Place Order
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+</html>
