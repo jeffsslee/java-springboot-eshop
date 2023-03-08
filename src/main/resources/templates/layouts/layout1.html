@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      class="h-100">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- favicon-->
+  <link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;," >
+  <title layout:title-pattern="$LAYOUT_TITLE > $CONTENT_TITLE">EShop</title>
+  <!--bootstrap css-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <!--jquery min /not slim!-->
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+          integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  <!--custom css-->
+  <link th:href="@{/css/css4layout1.css?v=1}" rel="stylesheet">
+</head>
+
+<th:block layout:fragment="local_javascript"></th:block>
+<th:block layout:fragment="local_css"></th:block>
+
+<body class="d-flex flex-column h-100">
+
+<div th:replace="fragments/header::header"></div>
+
+<div class="container py-5">
+  <div layout:fragment="content"></div>
+</div>
+<footer class="footer mt-auto py-3 text-white bg-primary">
+  <div th:replace="fragments/footer::footer"></div>
+</footer>
+<!--bootstrap bundle(including Popper and JS)-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+</html>

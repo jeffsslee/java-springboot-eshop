@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+
+<head>
+  <!--  Do NOT write header attributes here; if write....then, the attributes would be duplicated with layout template... -->
+  <title>Member Register</title>
+</head>
+
+<th:block layout:fragment="local_javascript">
+  <script th:inline="javascript">
+    $(function(){
+      let = errorMessage = [[${errorMessage}]];
+      if(errorMessage != null){
+      alert(errorMessage);
+      }
+    });
+
+  </script>
+</th:block>
+
+<th:block layout:fragment="local_css">
+  <style>
+  </style>
+</th:block>
+
+<div layout:fragment="content">
+  <div>
+    <form action="/members/new" role="form" method="post" th:object="${memberFormDto}">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6 border border-light-subtle px-5 pt-5">
+          <div class="fs-4 fw-bold mb-2 text-uppercase">Member Registration</div>
+          <p class="mb-4">Welcome to become a Member of E-Shop</p>
+          <div class="input-group has-validation">
+            <div class="form-floating mt-3">
+              <input type="text" data-th-field="*{name}" class="form-control" id="inputName" placeholder="Doe John">
+              <label for="inputName">Name</label>
+            </div>
+            <div data-th-if="${#fields.hasErrors('name')}" data-th-errors="*{name}" class="invalid-feedback d-block">
+              Please choose a username.
+            </div>
+          </div>
+          <div class="input-group has-validation">
+            <div class="form-floating mt-3">
+              <input type="email" data-th-field="*{email}" class="form-control" id="inputEmail"
+                     placeholder="doejohn@example.com">
+              <label for="inputEmail">Email</label>
+            </div>
+            <div data-th-if="${#fields.hasErrors('email')}" data-th-errors="*{email}" class="invalid-feedback d-block">
+              Please choose a right email.
+            </div>
+          </div>
+          <div class="input-group has-validation">
+            <div class="form-floating mt-3">
+              <input type="password" data-th-field="*{password}" class="form-control" id="inputPassword"
+                     placeholder="Password">
+              <label for="inputPassword">Password</label>
+            </div>
+            <div data-th-if="${#fields.hasErrors('password')}" data-th-errors="*{password}"
+                 class="invalid-feedback d-block">
+              Please enter your password.
+            </div>
+          </div>
+          <div class="input-group has-validation">
+            <div class="form-floating mt-3">
+              <input type="text" data-th-field="*{address}" class="form-control" id="inputAddress"
+                     placeholder="100 Mount Waverley VIC">
+              <label for="inputAddress">Address</label>
+            </div>
+            <div data-th-if="${#fields.hasErrors('address')}" data-th-errors="*{address}"
+                 class="invalid-feedback d-block">
+              Please enter your address.
+            </div>
+          </div>
+          <input type="hidden" data-th-name="${_csrf.parameterName}" data-th-value="${_csrf.token}"/>
+          <div class="d-grid mt-4">
+            <button class="btn btn-outline-secondary" type="submit">Submit</button>
+          </div>
+          <div class="text-center mt-4">
+            <p>Already Registered?
+              <a data-th-href="@{/members/login}" style="text-decoration: none;" class="text-primary fw-bold">Login</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</html>

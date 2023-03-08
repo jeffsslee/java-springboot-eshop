@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+
+<head>
+  <!--  Do NOT write header attributes here; if write....then, the attributes would be duplicated with layout template... -->
+  <meta name="_csrf" th:content="${_csrf.token}"/>
+  <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+  <title>Item Detail</title>
+</head>
+
+<th:block layout:fragment="local_javascript">
+  <script th:inline="javascript">
+    $(function(){
+      calculateTotalPrice();
+
+      $("#count").change(function(){
+        calculateTotalPrice();
+      });
+
+    });  // end of $()
+
+    function calculateTotalPrice(){
+    let count = $("#count").val();
+    let price = $("#price").val();
+    let totalPrice = Math.round(count * price * 100) / 100;
+    $("#totalPrice").html('$ ' + totalPrice.toFixed(2));
+     }
+
+    function order(){
+      let token = $("meta[name='_csrf']").attr("content");
+      let header = $("meta[name='_csrf_header']").attr("content");
+
+      let url = "/order";
+      let paramData = {
+        itemId : $("#itemId").val(),
+        count : $("#count").val()
+      };
+
+      let param = JSON.stringify(paramData);
+
+      $.ajax({
+        url: url,
+        type: "POST",
+        contentType: "application/json",
+        data: param,
+        beforeSend: function(xhr){
+          xhr.setRequestHeader(header, token);
+        },
+        dataType: "json",
+        cache: false,
+        success: function(result, status){
+          alert("Success Order placement!");
+          location.href='/';
+        },
+        error: function(jqXHR, status, error){
+          if(jqXHR.status == '401'){
+            alert('LOGIN is required!');
+            location.href='/members/login';
+          }else{
+            alert(jqXHR.responseText);
+          }
+        }
+      });
+    }
+
+    function addCart(){
+      let token = $("meta[name='_csrf']").attr("content");
+      let header = $("meta[name='_csrf_header']").attr("content");
+
+      let url = "/cart";
+      let paramData = {
+        itemId : $("#itemId").val(),
+        count : $("#count").val()
+      };
+
+      let param = JSON.stringify(paramData);
+
+      $.ajax({
+        url: url,
+        type: "POST",
+        contentType: "application/json",
+        data: param,
+        beforeSend: function(xhr){
+          xhr.setRequestHeader(header, token);
+        },
+        dataType: "json",
+        cache: false,
+        success: function(result, status){
+          alert("successfully added the item to your cart!");
+          location.href='/cart';
+        },
+        error: function(jqXHR, status, error){
+          if(jqXHR.status == '401'){
+            alert('LOGIN is required!');
+            location.href='/members/login';
+          }else{
+            alert(jqXHR.responseText);
+          }
+        }
+      });
+    }
+
+
+  </script>
+</th:block>
+
+<th:block layout:fragment="local_css">
+  <style>
+  </style>
+</th:block>
+
+<div layout:fragment="content">
+  <div class="container py-3">
+    <div class="col-sm-12 col-md-12 col-lg-12 border border-light-subtle px-5 py-5">
+      <div class="display-6  mb-4 text-uppercase">Item Detail</div>
+
+      <div class="row">
+        <input type="hidden" id="itemId" data-th-value="${item.id}"/>
+        <div class="col-md-6">
+          <img data-th-src="${item.itemImgDtoList[0].imgUrl}" data-th-alt="${item.itemName}" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+          <div class="card-body">
+            <h5>
+              <span class="badge text-bg-info"
+                    th:if="${item.itemSellStatus == T(com.example.eshop.constant.ItemSellStatus).FOR_SALE}">FOR SALE</span>
+              <span class="badge text-bg-danger"
+                    th:unless="${item.itemSellStatus == T(com.example.eshop.constant.ItemSellStatus).FOR_SALE}">SOLD OUT</span>
+            </h5>
+            <h5 class="card-title" th:text="${item.itemName}">Card title</h5>
+
+            <hr class="my-4">
+            <div class="h5 text-danger text-left">
+              <input type="hidden" th:value="${item.price}" id="price" name="price">
+              <!--              <span th:text="|$ ${#numbers.formatDecimal(item.price,1,'COMMA',2,'POINT')}|">00</span>-->
+              <span th:text="|$ ${item.price}|">00</span>
+            </div>
+
+            <div class="input-group mb-3 w-50">
+              <span class="input-group-text" id="quantity">Order Quantity</span>
+              <input type="number" class="form-control" name="count" id="count" value="1" min="1"
+                     aria-describedby="quantity">
+            </div>
+
+            <hr class="my-4">
+
+            <div class="text-end">
+              <h5>Total Amount</h5>
+              <h3 name="totalPrice" id="totalPrice" class="text-danger">0</h3>
+              <div data-th-if="${item.itemSellStatus eq T(com.example.eshop.constant.ItemSellStatus).FOR_SALE}">
+                <button type="button" class="btn btn-primary me-3" onclick="addCart()">Add to Cart</button>
+                <button type="button" class="btn btn-success" onclick="order()">Place Order</button>
+              </div>
+              <div data-th-unless="${item.itemSellStatus eq T(com.example.eshop.constant.ItemSellStatus).FOR_SALE}">
+                <button type="button" class="btn btn-warning">SOLD OUT</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="p-5 mt-4 mb-4 bg-light">
+        <div class="container-fluid py-3">
+          <h4 class="fw-bold">Item Description</h4>
+          <hr class="my-4">
+          <p class="fs-5" th:text="${item.itemDetail}">description</p>
+        </div>
+      </div>
+
+      <div th:each="itemImg : ${item.itemImgDtoList}" class="text-center mt-5">
+        <img th:if="${not #strings.isEmpty(itemImg.imgUrl)}" th:src="${itemImg.imgUrl}" class="w-75">
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+</html>

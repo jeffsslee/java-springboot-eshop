@@ -1,0 +1,18 @@
+/* css test
+
+*{color: red;}
+
+*/
+
+
+.plain-href:hover, .plain-href:visited, .plain-href:link, .plain-href:active {
+    color: #000;
+    text-decoration: none;
+}
+.plain-href:hover {
+    color: blue;
+}
+.plain-red-href:hover {
+    color: red;
+}
+

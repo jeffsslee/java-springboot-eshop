@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<div th:fragment="header">
+  <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <div class="container container-fluid">
+      <a class="navbar-brand" href="#" data-th-href="@{/}">E-Shop</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav me-auto">
+<!--          <a class="nav-link active" aria-current="page" href="#">Home</a>-->
+          <a class="nav-link" href="#" data-th-href="@{/admin/item/new}" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">Add Item</a>
+          <a class="nav-link" href="#" data-th-href="@{/admin/items}" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">Manage Item</a>
+          <a class="nav-link" href="#" data-th-href="@{/cart}" sec:authorize="isAuthenticated()">Shopping Cart</a>
+          <a class="nav-link" href="#" data-th-href="@{/orders}" sec:authorize="isAuthenticated()">History</a>
+          <a class="nav-link" href="#" data-th-href="@{/members/login}" sec:authorize="isAnonymous()">Login</a>
+          <a class="nav-link" href="#" data-th-href="@{/members/logout}" sec:authorize="isAuthenticated()">Logout</a>
+<!--          <a class="nav-link disabled">Disabled</a>-->
+        </div>
+        <form class="d-flex" role="search" th:action="@{/}" method="get">
+          <input class="form-control me-2" name="searchQuery" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-warning" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</div>
+
+</html>
