@@ -1,4 +1,4 @@
-package com.example.eshop.controller;
+package com.example.eshop.dto;
 
 import com.example.eshop.entity.OrderItem;
 import lombok.Getter;

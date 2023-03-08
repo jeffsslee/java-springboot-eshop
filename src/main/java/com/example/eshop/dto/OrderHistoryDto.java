@@ -1,7 +1,6 @@
 package com.example.eshop.dto;
 
 import com.example.eshop.constant.OrderStatus;
-import com.example.eshop.controller.OrderItemDto;
 import com.example.eshop.entity.Order;
 import lombok.Getter;
 import lombok.Setter;

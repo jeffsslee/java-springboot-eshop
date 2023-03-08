@@ -89,7 +89,7 @@
         cache: false,
         success: function(result, status){
           alert("successfully added the item to your cart!");
-          location.href='/';
+          location.href='/cart';
         },
         error: function(jqXHR, status, error){
           if(jqXHR.status == '401'){
